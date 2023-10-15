@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Side{% endblock %}
+
+{% block content %}
+    {% for i in data %}
+        <div class="card">
+            <p>{{ i.name }} - {{ i.meat }} - {{ i.chicken }} - {{ i.cheese }} - {{ i.tomato }} - {{ i.price }} $</p>
+            <div class="button_bar">
+                <form action="{% url 'update_page' %}" method="get">
+                    <input type="hidden" name="update" value="{{ i.id }}">
+                    <button type="submit">Изменить</button>
+                </form>
+                <form action="{% url 'side_page' %}" method="get">
+                    <input type="hidden" name="delete" value="{{ i.id }}">
+                    <button type="submit">Удалить</button>
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+    <a class="back" href="{% url 'main_page' %}">Назад</a>
+{% endblock %}

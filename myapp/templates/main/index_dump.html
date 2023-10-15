@@ -1,0 +1,51 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Update{% endblock %}
+
+{% block content %}
+    <form class="form_box" action="{% url 'side_page' %}" method="get">
+        <span class="form_block">
+            <label>Название: </label>
+            <input name="re_name" value="{{ data.name }}">
+        </span>
+        <span class="form_block">
+            <label>Говядина: </label>
+            {% if data.meat %}
+                <input type="checkbox" name="re_meat" checked="checked">
+            {% else %}
+                <input type="checkbox" name="re_meat">
+            {% endif %}
+        </span>
+        <span class="form_block">
+            <label>Курица: </label>
+            {% if data.chicken %}
+                <input type="checkbox" name="re_chicken" checked="checked">
+            {% else %}
+                <input type="checkbox" name="re_chicken">
+            {% endif %}
+        </span>
+        <span class="form_block">
+            <label>Сыр: </label>
+            {% if data.cheese %}
+                <input type="checkbox" name="re_cheese" checked="checked">
+            {% else %}
+                <input type="checkbox" name="re_cheese">
+            {% endif %}
+        </span>
+        <span class="form_block">
+            <label>Помидоры: </label>
+            {% if data.tomato %}
+                <input type="checkbox" name="re_tomato" checked="checked">
+            {% else %}
+                <input type="checkbox" name="re_tomato">
+            {% endif %}
+        </span>
+        <span class="form_block">
+            <label>Цена: </label>
+            <input name="re_price" value="{{ data.price }}">
+        </span>
+        <input type="hidden" value="{{ data.id }}" name="id">
+        <button type="submit" class="btn btn-warning">Изменить</button>
+    </form>
+{% endblock %}

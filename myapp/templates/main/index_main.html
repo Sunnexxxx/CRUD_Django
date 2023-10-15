@@ -1,0 +1,33 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Main{% endblock %}
+
+{% block content %}
+    <form class="form_box" action="{% url 'side_page' %}" method="get">
+        <span class="form_block">
+            <label>Название: </label>
+            <input name="name">
+        </span>
+        <span class="form_block">
+            <label>Говядина: </label>
+            <input type="checkbox" name="meat">
+        </span>
+        <span class="form_block">
+            <label>Курица: </label>
+            <input type="checkbox" name="chicken">
+        </span>
+        <span class="form_block">
+            <label>Сыр: </label>
+            <input type="checkbox" name="cheese">
+        </span>
+        <span class="form_block">
+            <label>Помидоры: </label>
+            <input type="checkbox" name="tomato">
+        </span>
+        <span class="form_block">
+            <label>Цена: </label>
+            <input name="price">
+        </span>
+        <button type="submit" class="btn btn-warning">Отправить данные</button>
+    </form>
+{% endblock %}
